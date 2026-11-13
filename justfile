@@ -3,7 +3,7 @@ _default:
 
 [group: 'dev']
 compile:
-    @g++ main.cpp -o main.out -Wall
+    @g++ main.cpp -o main.out -O2 -std=c++20 -Wall -Wextra
 
 [group: 'dev']
 clean:

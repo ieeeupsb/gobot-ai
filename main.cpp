@@ -1,8 +1,11 @@
 #include <iostream>
 
+#include "board/board.h"
+
 int main(void) {
+    Board b = Board();
 
-  std::cout << "Hello, World!" << std::endl;
+    std::cout << b.to_string() << std::endl;
 
-  return 0;
+    return 0;
 }
