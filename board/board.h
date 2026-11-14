@@ -11,31 +11,32 @@
 
 class Board {
     private:
-        std::vector<std::optional<Stone>> board = {};
-        size_t size = 9;
+        std::vector<std::optional<Stone>> board_ = {};
+        size_t size_ = 9;
 
     public:
         Board() {
-            for (size_t i = 0; i < this->size * this->size; i++) {
-                this->board.push_back(std::nullopt);
+            for (size_t i = 0; i < size_ * size_; i++) {
+                board_.push_back(std::nullopt);
             }
         };
 
         /**
-         * Returns the element at given row and col. Both a 0-based.
+         * Returns the element at given row and col. Both are 0-based.
          */
         std::optional<Stone> at(int row, int col) const {
-            return board[row * this->size + col];
+            // TODO: maybe add a out of bounds check
+            return board_[row * size_ + col];
         }
 
         std::string to_string() const {
             std::string out = "";
             out += "[\n";
-            for (size_t i = 0; i < size; i++) {
+            for (size_t i = 0; i < size_; i++) {
                 std::string line = "  ";
-                for (size_t j = 0; j < size; j ++) {
+                for (size_t j = 0; j < size_; j ++) {
                     if (j > 0) line += ' ';
-                    line += to_char(this->at(i, j));
+                    line += to_char(at(i, j));
                 }
                 line += '\n';
                 out += line;
@@ -45,8 +46,25 @@ class Board {
             return out;
         }
 
-        void print() {
-            std::cout << this->to_string() << '\n';
+        void print() const {
+            std::cout << to_string() << '\n';
+        }
+
+        size_t size() const {
+            return size_;
+        }
+
+        void place(int row, int col, Stone s) {
+            auto curr = at(row, col);
+            if (!curr.has_value()) {
+                board_[row * size_ + col] = s;
+            } else {
+                // TODO: invalid move? idk
+            }
+        }
+
+        void remove(int row, int col) {
+            // TODO: is it useful?
         }
 };
 
