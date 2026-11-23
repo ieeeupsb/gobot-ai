@@ -30,4 +30,8 @@ constexpr char to_char(std::optional<Stone> s) {
     return 'O';
 }
 
+constexpr Stone opponent(Stone s) {
+    return (s==Stone::White) ? Stone::Black : Stone::White;
+}
+
 #endif
