@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 project(gobot-ai LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # by the time we have cpp files, we need to update this to use cpp files
 # also need to update INTERFACE to PUBLIC and PRIVATE
