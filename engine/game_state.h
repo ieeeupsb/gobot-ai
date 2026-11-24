@@ -10,10 +10,14 @@ class GameState {
     private:
         Board board_;
         Stone turn_;
+        // Intersection forbidden on the next turn due to simple Ko
         std::optional<Move> ko_point_;
         int consecutive_passes_;
+        // Extra points for White, since it always starts second
+        double komi_;
 
     public:
+        GameState();
         // Inspect the board without copying it
         const Board* board() const;
         // Current player to place a stone
