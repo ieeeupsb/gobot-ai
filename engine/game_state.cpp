@@ -13,8 +13,8 @@ GameState::GameState() {
     komi_ = 6.5;
 }
 
-const Board* GameState::board() const {
-    // TODO
+const Board& GameState::board() const {
+    return board_;
 }
 
 Stone GameState::turn() const {

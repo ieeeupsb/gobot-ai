@@ -19,7 +19,7 @@ class GameState {
     public:
         GameState();
         // Inspect the board without copying it
-        const Board* board() const;
+        const Board& board() const;
         // Current player to place a stone
         Stone turn() const;
         bool is_game_over() const;
