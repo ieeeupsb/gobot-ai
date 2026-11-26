@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(gobot_core
+    board/board.cpp
     engine/game_state.cpp
 )
 target_include_directories(gobot_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
