@@ -58,5 +58,19 @@ bool GameState::is_game_over() const {
 }
 
 bool GameState::play(const Move& m) {
-    // TODO
+    // TODO: add captures
+    // this already checks the KO point
+    if (!is_legal(m)) return false;
+
+    if (m.is_pass) {
+        consecutive_passes_++;
+    } else {
+        board_.place(m.row, m.col, turn_);
+        consecutive_passes_ = 0;
+    }
+
+    ko_point_ = std::nullopt;
+    turn_ = opponent(turn_);
+
+    return true;
 }
