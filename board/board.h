@@ -12,11 +12,11 @@
 class Board {
     private:
         std::vector<std::optional<Stone>> board_ = {};
-        size_t size_ = 9;
+        int size_ = 9;
 
     public:
         Board() {
-            for (size_t i = 0; i < size_ * size_; i++) {
+            for (int i = 0; i < size_ * size_; i++) {
                 board_.push_back(std::nullopt);
             }
         };
@@ -50,7 +50,7 @@ class Board {
             std::cout << to_string() << '\n';
         }
 
-        size_t size() const {
+        int size() const {
             return size_;
         }
 
