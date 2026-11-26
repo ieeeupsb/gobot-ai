@@ -7,9 +7,7 @@
 #include <vector>
 
 Board::Board() {
-    for (int i = 0; i < size_ * size_; i++) {
-        board_.push_back(std::nullopt);
-    }
+    board_.assign(size_ * size_, std::nullopt);
 }
 
 std::string Board::to_string() const {
